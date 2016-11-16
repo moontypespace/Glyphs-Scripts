@@ -490,7 +490,10 @@ def makePlist(font):
 			if not FoundColorIndex:
 				r, g, b = colorsys.hsv_to_rgb(Mark/256., 1., 1.)
 				Glyph["color"] = [int(r * 255), int(g*255), int(b*255), 1]
-		
+				
+		if glyph.note > 0:
+			Glyph["note"] = glyph.note
+			
 		Glyphs.append(Glyph)
 	Font["glyphs"] = Glyphs
 	Font["kerning"] = Kerning
